@@ -47,6 +47,9 @@ gem "bootsnap", require: false
 gem 'devise'
 gem 'tailwindcss-rails'
 
+# slim-rails provides slim generators for rails, there is no need to include gem "slim" in your Gemfile
+gem 'slim-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
