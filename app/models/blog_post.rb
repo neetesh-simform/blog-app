@@ -1,5 +1,7 @@
 class BlogPost < ApplicationRecord
+  validates :title, :content, presence: true
+
   belongs_to :user
 
-  default_scope { order(created_at: :desc) }
+  scope :desc_order, -> { order(created_at: :desc) }
 end

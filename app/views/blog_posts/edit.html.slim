@@ -1,0 +1,9 @@
+.max-w-4xl.mx-auto.py-8
+  .flex.justify-between.items-center
+    .font-semibold.mb-4.text-2xl.font-semibold
+      | Edit Blog Post
+    .hidden.md:block
+      = link_to 'My Blogs', blog_posts_path, class: 'text-blue-500 hover:text-blue-700 px-3 py-2 rounded-md'
+
+  .max-w-lg.mx-auto.bg-white.rounded-lg.shadow-md.overflow-hidden
+    = render 'form', blog_post: @blog_post
