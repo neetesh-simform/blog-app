@@ -1,4 +1,21 @@
-| <div id="
-= dom_id comment
-| ">
-= comment.content
+- user = comment.user
+
+div id="#{dom_id(comment)}"
+  .bg-white.p-4.rounded-lg.shadow-md
+    .flex.justify-between.items-center
+      span.text-sm.text-gray-600
+        | Posted by #{user.email} on #{comment.created_at.strftime("%B %d, %Y")}
+    p.mt-2.text-gray-800
+      = comment.content
+
+    - if user.id == current_user.id
+      .py-2.flex.justify-between
+
+        = turbo_frame_tag comment
+          = link_to "Edit Comment", edit_blog_post_comment_path(blog_post, comment), class: "text-blue-500 font-semibold hover:text-blue-700"
+
+
+        = link_to "Destroy", blog_post_comment_path(blog_post, comment), data: { turbo_method: :delete }, class: "text-blue-500 font-semibold hover:text-blue-700"
+  br
+
+

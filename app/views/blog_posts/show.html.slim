@@ -19,11 +19,11 @@
       = link_to "Destroy", blog_post_path(@blog_post), data: { turbo_method: :delete }, class: "text-blue-500 font-semibold hover:text-blue-700"
 
   - if user_signed_in?
-    = render 'comments/form', blog_post: @blog_post, comment: @comment
+    = render 'comments/new', blog_post: @blog_post, comment: @comment
 
   = turbo_stream_from @blog_post, :comments
 
   div id="#{dom_id(@blog_post)}_comments" class="mt-4"
-    - @comments.each do |comment|
-      = render 'comments/comment', comment: comment
-
+    #comments.space-y-4
+      - @comments.each do |comment|
+        = render 'comments/comment', comment: comment, blog_post: @blog_post

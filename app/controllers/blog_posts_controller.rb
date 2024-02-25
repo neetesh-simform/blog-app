@@ -2,7 +2,7 @@ class BlogPostsController < ApplicationController
   before_action :find_blog_post, only: %i[show edit update destroy]
 
   def index
-    @blog_posts = current_user.blog_posts.desc_order
+    @blog_posts = BlogPost.all.desc_order
   end
 
   def new
