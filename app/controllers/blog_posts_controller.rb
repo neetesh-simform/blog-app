@@ -12,10 +12,15 @@ class BlogPostsController < ApplicationController
   def create
     @blog_post = current_user.blog_posts.build(blog_post_params)
 
-    if @blog_post.save
-      redirect_to blog_posts_url, notice: 'Blog post successfully created'
-    else
-      render :new
+
+    respond_to do |format|
+      if @blog_post.save
+        format.html { redirect_to blog_posts_url, notice: 'Blog post successfully created' }
+      else
+        format.html { render :new }
+      end
+
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("blog_post_#{@blog_post.id}", partial: 'blog_posts/form', locals: { blog_post: @blog_post }) }
     end
   end
 
