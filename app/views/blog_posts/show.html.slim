@@ -24,6 +24,5 @@
   = turbo_stream_from @blog_post, :comments
 
   div id="#{dom_id(@blog_post)}_comments" class="mt-4"
-    #comments.space-y-4
-      - @comments.each do |comment|
-        = render 'comments/comment', comment: comment, blog_post: @blog_post
+    - @comments.each do |comment|
+      = render 'comments/comment', comment: comment, blog_post: @blog_post

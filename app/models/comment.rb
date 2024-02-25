@@ -1,6 +1,8 @@
 class Comment < ApplicationRecord
   include ActionView::RecordIdentifier
 
+  validates :content, presence: true
+
   belongs_to :blog_post
   belongs_to :user
 

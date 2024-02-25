@@ -28,7 +28,8 @@ class CommentsController < ApplicationController
   def update
     if @comment.update(comment_params)
       respond_to do |format|
-        format.turbo_stream
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("blog_post_#{@comment.id}", partial: 'comments/comment', locals: { comment: @comment, blog_post: @blog_post }) }
+
         format.html { redirect_to blog_post_url }
       end
     else
