@@ -12,5 +12,7 @@ html
     = javascript_importmap_tags
 
   body
-    main.container.mx-auto.mt-28.px-5.flex
+    - if user_signed_in?
+      = render 'partials/navbar'
+    main.container.mx-auto.mt-7.px-5
       = yield
