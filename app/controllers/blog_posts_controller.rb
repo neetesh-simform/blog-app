@@ -19,6 +19,11 @@ class BlogPostsController < ApplicationController
     end
   end
 
+  def show
+    @comments = @blog_post.comments.desc_order
+    @comment = Comment.new
+  end
+
   def edit; end
 
   def update
