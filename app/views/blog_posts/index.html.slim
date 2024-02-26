@@ -20,3 +20,5 @@
         - if blog_post.user_id == current_user.id
           = link_to "Edit", edit_blog_post_path(blog_post), class: "text-blue-500 font-semibold hover:text-blue-700"
           = link_to "Destroy", blog_post_path(blog_post), data: { turbo_method: :delete }, class: "text-blue-500 font-semibold hover:text-blue-700"
+
+  = will_paginate @blog_posts

@@ -1,5 +1,5 @@
 = turbo_frame_tag "blog_post_#{blog_post.id}"
-  = form_with model: blog_post do |form|
+  = form_with model: blog_post, data: { turbo: false } do |form|
     - if blog_post.errors.any?
       .mb-4.text-red-500
         h2 = pluralize(blog_post.errors.count, "error") + " prohibited this blog post from being saved:"

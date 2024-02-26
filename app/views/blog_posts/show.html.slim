@@ -14,9 +14,10 @@
       p.text-gray-500
         - if @blog_post.publication_at
           = @blog_post.publication_at.strftime("%B %d, %Y")
-    .px-6.py-2.bg-gray-100.flex.justify-between
-      = link_to "Edit", edit_blog_post_path(@blog_post), class: "text-blue-500 font-semibold hover:text-blue-700"
-      = link_to "Destroy", blog_post_path(@blog_post), data: { turbo_method: :delete }, class: "text-blue-500 font-semibold hover:text-blue-700"
+    - if @blog_post.user_id == current_user.id
+      .px-6.py-2.bg-gray-100.flex.justify-between
+        = link_to "Edit", edit_blog_post_path(@blog_post), class: "text-blue-500 font-semibold hover:text-blue-700"
+        = link_to "Destroy", blog_post_path(@blog_post), data: { turbo_method: :delete }, class: "text-blue-500 font-semibold hover:text-blue-700"
 
   - if user_signed_in?
     = render 'comments/new', blog_post: @blog_post, comment: @comment
