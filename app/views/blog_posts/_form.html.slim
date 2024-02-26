@@ -12,9 +12,9 @@
       = form.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
     .mb-4
       = form.label :content, class: "block text-gray-700 text-sm font-bold mb-2"
-      = form.text_area :content, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      = form.rich_text_area :content, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
     .mb-4
-      = form.label :publication_at, class: "block text-gray-700 text-sm font-bold mb-2"
-      = form.date_field :publication_at, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      = form.label 'Save as draft', class: "block text-gray-700 text-sm font-bold mb-2"
+      = form.check_box :is_draft, class: "shadow appearance-none border rounded text-gray-700"
     .mb-6
-      = form.submit "Create Blog Post", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      = form.submit "Publish", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

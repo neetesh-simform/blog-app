@@ -10,7 +10,7 @@
       h2.text-xl.font-semibold.mb-2
         = @blog_post.title
       p.text-gray-700.mb-2
-        = @blog_post.content.truncate(380)
+        = @blog_post.content
       p.text-gray-500
         - if @blog_post.publication_at
           = @blog_post.publication_at.strftime("%B %d, %Y")
