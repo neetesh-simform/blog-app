@@ -5,6 +5,10 @@ class BlogPostsController < ApplicationController
     @blog_posts = BlogPost.paginate(page: params[:page]).published.desc_order
   end
 
+  def my_blogs
+    @blog_posts = BlogPost.paginate(page: params[:page]).draft.desc_order
+  end
+
   def new
     @blog_post = BlogPost.new
   end

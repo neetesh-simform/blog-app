@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   resources :blog_posts do
+    get :my_blogs, on: :collection
     resources :comments, only: [:create, :edit, :update, :destroy]
   end
 

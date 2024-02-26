@@ -1,0 +1,14 @@
+.bg-white.rounded.shadow-md.mb-4
+  .px-6.py-4
+    h2.text-xl.font-semibold.mb-2
+      = blog_post.title
+    p.text-gray-700.mb-2
+      = blog_post.content
+    p.text-gray-500
+      - if blog_post.publication_at
+        = blog_post.publication_at.strftime("%B %d, %Y")
+  .px-6.py-2.bg-gray-100.flex.justify-between
+    = link_to "Read More", blog_post, class: "text-blue-500 font-semibold hover:text-blue-700"
+    - if blog_post.user_id == current_user.id
+      = link_to "Edit", edit_blog_post_path(blog_post), class: "text-blue-500 font-semibold hover:text-blue-700"
+      = link_to "Destroy", blog_post_path(blog_post), data: { turbo_method: :delete }, class: "text-blue-500 font-semibold hover:text-blue-700"
